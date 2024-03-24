@@ -19,7 +19,10 @@ public class TreeNode {
 	//
 	public TreeNode(String computerNameValue, TreeNode parentValue, TreeNode leftChildValue, TreeNode rightChildValue)
 	{
-	    // Implement me.
+	    computerName = computerNameValue;
+		parent = parentValue;
+		leftChild = leftChildValue;
+		rightChild = rightChildValue;
 	}
 	
 	
@@ -29,7 +32,11 @@ public class TreeNode {
 	//
 	public void insertNewNode(TreeNode currentNode, TreeNode newNode)   
 	{
-		// Implement me.
+		if (currentNode == null) {
+			currentNode = newNode;
+			return;
+		}
+		
 			    
 	}
 	
