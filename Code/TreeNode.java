@@ -60,7 +60,7 @@ public class TreeNode {
 	// Postcondition: The tree is walked in order to display the keys of its nodes.  
 	//                The walk starts at currentNode.
 	//
-	public TreeNode analyzeInOrder(TreeNode currentNode)   
+	public void analyzeInOrder(TreeNode currentNode)
 	{
 	   if (currentNode != null) {
 		   analyzeInOrder(currentNode.leftChild);
@@ -74,7 +74,7 @@ public class TreeNode {
 	// Postcondition: The tree is walked in pre-order to display the keys of its nodes.  
 	//                The walk starts at currentNode.
 	//               
-	public TreeNode analyzeInPreOrder(TreeNode currentNode)   
+	public void analyzeInPreOrder(TreeNode currentNode)
 	{
 	   if (currentNode != null) {
 		   System.out.println(currentNode.computerName);
@@ -88,9 +88,13 @@ public class TreeNode {
 	// Postcondition: The tree is walked in post-order to display the keys of its nodes.  
 	//                The walk starts at currentNode.
 	//               
-	public TreeNode analyzeInPostOrder(TreeNode currentNode)   
+	public void analyzeInPostOrder(TreeNode currentNode)
 	{
-	   // Implement me. 
+	   if (currentNode != null) {
+		   analyzeInPostOrder(currentNode.leftChild);
+		   analyzeInPostOrder(currentNode.rightChild);
+		   System.out.println(currentNode.computerName);
+	   }
 	}
 	
 }
