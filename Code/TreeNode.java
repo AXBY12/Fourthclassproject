@@ -34,7 +34,22 @@ public class TreeNode {
 	{
 		if (currentNode == null) {
 			currentNode = newNode;
-			return;
+		} else {
+			if (newNode.computerName.compareTo(currentNode.computerName) < 0) {
+				if (currentNode.leftChild == null) {
+					currentNode.leftChild = newNode;
+					newNode.parent = currentNode;
+				} else {
+					insertNewNode(currentNode.leftChild, newNode);
+				}
+			} else {
+				if (currentNode.rightChild == null) {
+					currentNode.rightChild = newNode;
+					newNode.parent = currentNode;
+				} else {
+					insertNewNode(currentNode.rightChild, newNode);
+				}
+			}
 		}
 		
 			    
@@ -47,7 +62,11 @@ public class TreeNode {
 	//
 	public TreeNode analyzeInOrder(TreeNode currentNode)   
 	{
-	   // Implement me. 
+	   if (currentNode != null) {
+		   analyzeInOrder(currentNode.leftChild);
+		   System.out.println(currentNode.computerName);
+		   analyzeInOrder(currentNode.rightChild);
+	   }
 	}
 
 	
@@ -57,7 +76,11 @@ public class TreeNode {
 	//               
 	public TreeNode analyzeInPreOrder(TreeNode currentNode)   
 	{
-	   // Implement me. 
+	   if (currentNode != null) {
+		   System.out.println(currentNode.computerName);
+		   analyzeInPreOrder(currentNode.leftChild);
+		   analyzeInPreOrder(currentNode.rightChild);
+	   }
 	}
 	
 	
