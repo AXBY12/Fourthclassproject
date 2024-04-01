@@ -11,6 +11,7 @@ public class TreeNode {
 	private TreeNode leftChild;
 
 	private TreeNode rightChild;
+	private boolean printOne = true;
 	
 	
 	// Precondition: None.
@@ -63,6 +64,10 @@ public class TreeNode {
 	public void analyzeInOrder(TreeNode currentNode)
 	{
 	   if (currentNode != null) {
+		   if (printOne) {
+			   System.out.println("Walking the binary search tree in order.");
+			   printOne = false;
+		   }
 		   analyzeInOrder(currentNode.leftChild);
 		   System.out.println(currentNode.computerName);
 		   analyzeInOrder(currentNode.rightChild);
@@ -77,6 +82,10 @@ public class TreeNode {
 	public void analyzeInPreOrder(TreeNode currentNode)
 	{
 	   if (currentNode != null) {
+		   if (printOne) {
+			   System.out.println("Walking the binary search tree in pre-order.");
+			   printOne = false;
+		   }
 		   System.out.println(currentNode.computerName);
 		   analyzeInPreOrder(currentNode.leftChild);
 		   analyzeInPreOrder(currentNode.rightChild);
@@ -93,8 +102,13 @@ public class TreeNode {
 	   if (currentNode != null) {
 		   analyzeInPostOrder(currentNode.leftChild);
 		   analyzeInPostOrder(currentNode.rightChild);
+		   if (printOne) {
+			   System.out.println("Walking the binary search tree in post-order.");
+			   printOne = false;
+		   }
 		   System.out.println(currentNode.computerName);
 	   }
+
 	}
 	
 }
